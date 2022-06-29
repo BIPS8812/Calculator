@@ -107,3 +107,16 @@ equalsButton.addEventListener("click", function() {
   calculator.compute();
   calculator.updateDisplay();
 })
+
+document.addEventListener("keypress", function(event) {
+  if (parseFloat(event.key) >= 1 && parseFloat(event.key) <= 9) {
+    calculator.append(parseFloat(event.key));
+    calculator.updateDisplay();
+  }else if (event.key === '=') {
+    calculator.compute();
+    calculator.updateDisplay();
+  }else if (event.key === '+' || event.key === '-' || event.key === '*' || event.key === '/') {
+    calculator.operationSelection(event.key);
+    calculator.updateDisplay()
+  }
+})
